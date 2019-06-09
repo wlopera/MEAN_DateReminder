@@ -1,5 +1,6 @@
-WLOPERA_Gastos:
---------------
+MEAN_DateReminder:
+-----------------
+Programa que envia recordatorios vía SMTP. Se utiliza un cron que consulta base de datos Mongo y envía correos de recordatorios de fechas importantes (cumpleaños, notas de eventos que queremos recordar, etc). 
 
 Instalaciones Requeridas:
 -------------------------
@@ -28,6 +29,10 @@ Instalaciones Requeridas:
        > cd myapp
 
   4.- Instalar y configurar angularJS (OPCIONAL)
+  
+  5.- Intslar y configurar nodemailer,js
+  
+  6.- Uso de cor.js, bory-parser, properties-reader, etc
 
   nota: Intalaciones para windows.
 
@@ -119,4 +124,3 @@ Ejemplo de consulta en MongoDB
 LINK:
 -------
 
-https://jarroba.com/mean-mongo-express-angular-node-ejemplo-de-aplicacion-web-parte-ii/
