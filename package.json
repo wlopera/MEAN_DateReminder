@@ -1,0 +1,22 @@
+{
+  "name": "Mean_Recordatorios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error cargando sistema \" && exit 1"
+  },
+  "author": "William Lopera",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.0.9",
+    "morgan": "^1.9.0",
+    "nodemailer": "^6.2.1",
+    "nodemailer-mailgun-transport": "^1.4.0",
+    "package.json": "^2.0.1",
+    "properties-reader": "^0.0.16"
+  }
+}
