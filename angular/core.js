@@ -1,11 +1,14 @@
-angular.module('App', [])
-    .controller('Controller', function ($scope, $http) {
+
+var app = angular.module('mainApp', []);
+
+app.controller('mainController', function($scope, $http) {
+
     $scope.newReminder = {};
 	$scope.reminders = {};
 	$scope.selected = false;
 
 	// Obtener recordatorios de base de datos
-	$http.get('/api/reminder')
+	$http.get('http://localhost:3000/api/reminder')
 		.success(function(data) {
 			console.log("Consulta BD - core.js -- /api/reminder: ", data);
 			$scope.reminders = data;
@@ -19,7 +22,7 @@ angular.module('App', [])
 
 	// Registrar un recordatorio en BD
 	$scope.createReminder = function() {
-		$http.post('/api/reminder', $scope.newReminder)
+		$http.post('http://localhost:3000/api/reminder', $scope.newReminder)
 		.success(function(data) {
 			$scope.newReminder = {};    // Borramos los datos iniciales del formulario
 			$scope.reminders = data;    // Pasamos los valores a la vista

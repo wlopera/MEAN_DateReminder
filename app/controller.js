@@ -16,25 +16,37 @@ const Reminder = require('./model/reminder');
  * @date:  Junio 2019
  */
 function getReminders(req, res) {
+
     console.log("Inicio getReminders controller.js");
+    
     Reminder.find(function (err, reminder) {
         if (err) {
             console.log("##=> Error consultando recordatorios: %o", err);
             return res.send("Error consultando recordatorios" + err);
         }
 
-        var date = reminder.day + '/' + reminder.month + '/' +reminder.year;
-        var note = {
-            date   : date,              // Fecha
-            to     : reminder.to,       // Remitente
-            note   : reminder.note,     // Mensaje 
-            status : reminder.status,   // 0 = en espera / 1 = por enviar / 2 = enviada
-            active : reminder.active,   // 0 = inactiva / 1 = activa
-            total  : reminder.total     // Veces enviada
+        // console.log("##=> Consultar - reminder: %o", reminder);
+
+        var notes = [];
+
+        for (i in reminder) {
+            var date = reminder[i].day + '/' + reminder[i].month + '/' +reminder[i].year;
+            var note = {
+                date   : date,                 // Fecha
+                to     : reminder[i].to,       // Remitente
+                note   : reminder[i].note,     // Mensaje 
+                status : reminder[i].status,   // 0 = en espera / 1 = por enviar / 2 = enviada
+                active : reminder[i].active,   // 0 = inactiva / 1 = activa
+                total  : reminder[i].total     // Veces enviada
+            }
+            notes.push(note);
         }
 
+        console.log("##=> Consultar - note: %o", notes);
+
         console.log("Fin getReminders controller.js");
-        res.json(note);
+
+        res.json(notes);
     });
 }; 
 
@@ -47,8 +59,9 @@ function getReminders(req, res) {
 function setReminder(req, res) {
 
     console.log("Inicio setReminder controller.js");
+    console.log("##=> Agregar - req.body: %o", req.body);
 
-    var date = req.body.data.split("/");
+    var date = req.body.date.split("/");
 
     var note = {
         day    : date[0],           // Dia del evento
