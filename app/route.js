@@ -16,6 +16,12 @@ module.exports = function (app) {
 	// Crear una nueva nota de recordatorio
 	app.post('/api/reminder', Controller.setReminder);
 
+	// Modificar los datos de una nota
+	app.put('/api/reminder', Controller.updateReminder);
+
+	// Borrar nota de recordatorio
+	app.delete('/api/reminder/:reminderId', Controller.removeReminder);
+
 	// Aplicacion - carga vista inicial
 	app.get('*', function (req, res) {
 		res.sendfile('./angular/index.html');

@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var reminderSchema = new Schema({
-    
     day : {type : Number},      // Dia del evento
     month : {type : Number},    // Mes del evento
     year : {type : Number},     // Annio del evento
